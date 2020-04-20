@@ -1,5 +1,48 @@
 This repo is forked for arm64 support, and tested in Raspberry Pi 4B.
 
+To install this driver on arm64/ubuntu, several things more you should do, not because of this repo itself but the arm64 support of the OS. 
+
+# Pre-install
+OS: [Ubuntu 18.04/arm64](http://cdimage.ubuntu.com/releases/bionic/release/ubuntu-18.04.4-preinstalled-server-arm64+raspi3.img.xz)
+
+1. [VideoCore](https://wiki.ubuntu.com/ARM/RaspberryPi#VideoCore)
+  ```
+  add-apt-repository ppa:ubuntu-raspi2/ppa
+  apt-get install libraspberrypi-bin libraspberrypi-dev
+  sudo ln -s /usr /opt/vc
+  ```
+2. libbcm_host.so
+
+  Use library in this repo
+  ```
+  cp libbcm_host.so /usr/lib
+  ```
+  or compile from source
+  ```
+  apt-get install g++-aarch64-linux-gnu gcc-aarch64-linux-gnu
+  git clone git@github.com:raspberrypi/userland.git 
+  cd userland
+  ./buildme --aarch64
+  ```
+3. xinput-calibrator
+  ```
+  apt-get install libxi6
+  ```
+  This package is in this repo now, in case you'd like to download another version, go [xinput-calibrator](https://packages.debian.org/buster/arm64/xinput-calibrator/download)
+4. MOST important: login as user pi
+  ```
+  adduser pi                                                                                                              
+  usermod -aG sudo pi
+  ```
+  and then
+  ```
+  git clone https://github.com/waveshare/LCD-show.git
+  cd /home/pi/LCD-show
+  sudo ./LCD-show
+  ```
+
+Good luck.
+
 # 2.8inch RPi LCD (A)
 
 ### Description:
