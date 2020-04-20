@@ -1,3 +1,5 @@
+This repo is forked for arm64 support, and tested in Raspberry Pi 4B.
+
 # 2.8inch RPi LCD (A)
 
 ### Description:
