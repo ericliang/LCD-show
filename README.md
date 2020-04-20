@@ -15,7 +15,7 @@ OS: [Ubuntu 18.04/arm64](http://cdimage.ubuntu.com/releases/bionic/release/ubunt
 
   Use library in this repo
   ```
-  cp libbcm_host.so /usr/lib
+  cp ./usr/lib/libbcm_host.so /usr/lib
   ```
   or compile from source
   ```
